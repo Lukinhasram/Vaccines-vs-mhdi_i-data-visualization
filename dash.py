@@ -74,7 +74,7 @@ st.sidebar.markdown("#### Estados com menor cobertura")
 st.sidebar.dataframe(piores_estados.rename(columns={'LOCAL_NAME': 'Estado', 'PC_COVERAGE': 'Cobertura'}), hide_index=True)
 
 # Nota explicativa sobre a cobertura vacinal
-st.sidebar.markdown(":small[Coberturas maiore que 100% são comuns quando a população-alvo está subestimada ou crianças de outros estados se vacinam ali.]")
+st.sidebar.markdown(":small[Coberturas maiores que 100% são comuns quando a população-alvo está subestimada ou crianças de outros estados se vacinam ali.]")
 
 # Cálculo da Correlação e P-valor
 # Verifica se há dados suficientes para o cálculo (mínimo 3 pontos para df=n-2)
