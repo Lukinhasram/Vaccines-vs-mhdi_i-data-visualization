@@ -6,7 +6,7 @@ from scipy.stats import t
 import streamlit as st
 
 # Carregamento dos Dados
-df = pd.read_csv("./immunization_master_data.csv")
+df = pd.read_csv("immunization_master_data.csv")
 
 # Pré-processamento dos Dados
 # Define as siglas dos estados brasileiros
