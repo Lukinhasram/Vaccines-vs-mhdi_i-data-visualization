@@ -2,7 +2,7 @@
 import pandas as pd
 import numpy as np
 import plotly.express as px
-from scipy.stats import pearsonr, t # Import t distribution for p-value calculation
+from scipy.stats import t
 import streamlit as st
 
 # Carregamento dos Dados
