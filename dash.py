@@ -4,9 +4,32 @@ import numpy as np
 import plotly.express as px
 from scipy.stats import t
 import streamlit as st
+import requests
+from io import StringIO
+
+# Função para carregar o CSV do Google Drive
+@st.cache_data  # Cache para evitar múltiplos downloads
+def load_data():
+    # ID do arquivo no Google Drive (extraído do link)
+    file_id = "107wbVVCyC6nUg2PTI-3torrCHY2iKjKU"
+    
+    # URL para download direto (transforma o link compartilhável em link de download)
+    download_url = f"https://drive.google.com/uc?export=download&id={file_id}"
+    
+    # Faz o download do arquivo
+    response = requests.get(download_url)
+    response.raise_for_status()  # Verifica erros
+    
+    # Carrega o CSV diretamente no pandas
+    df = pd.read_csv(StringIO(response.text))
+    return df
 
 # Carregamento dos Dados
-df = pd.read_csv("immunization_master_data.csv")
+try:
+    df = load_data()
+except Exception as e:
+    st.error(f"Erro ao carregar os dados: {e}")
+    st.stop()  # Interrompe a execução se falhar
 
 # Pré-processamento dos Dados
 # Define as siglas dos estados brasileiros
